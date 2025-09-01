@@ -1,0 +1,6 @@
+setup.py
+Pusula_Data_Science_Case.egg-info/PKG-INFO
+Pusula_Data_Science_Case.egg-info/SOURCES.txt
+Pusula_Data_Science_Case.egg-info/dependency_links.txt
+Pusula_Data_Science_Case.egg-info/requires.txt
+Pusula_Data_Science_Case.egg-info/top_level.txt
