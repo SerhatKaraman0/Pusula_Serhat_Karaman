@@ -1,0 +1,16 @@
+,unique_count,most_frequent,frequency
+CINSIYET,2,kadın,1443
+KANGRUBU,8,0 rh+,1234
+UYRUK,5,türkiye,2173
+KRONIKHASTALIK,220,myastenia gravis,644
+BOLUM,10,"fiziksel tıp ve rehabilitasyon,solunum merkezi",2056
+ALERJI,26,yok,944
+TANILAR,360,"dorsalji̇, di̇ğer, lumbosakral bölge",212
+TEDAVIADI,240,dorsalji -boyun+trapez,231
+UYGULAMAYERLERI,37,bel,622
+TANILAR_LIST,265,"['dorsalji̇', 'di̇ğer', 'lumbosakral bölge']",223
+TANI_CATEGORY_LIST,8,Other/General,1122
+TEDAVI_KATEGORISI,4,other,1692
+EN_SIK_TEDAVI,239,dorsalji -boyun+trapez,231
+YAS_LABELS,7,YASLI,866
+KANGRUBU_TYPE,4,0,1263

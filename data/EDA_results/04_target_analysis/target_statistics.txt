@@ -1,0 +1,16 @@
+TARGET VARIABLE ANALYSIS: TEDAVISURESI_SEANS_SAYI
+============================================================
+
+Count: 2235.0000
+Mean: 14.5709
+Median: 15.0000
+Mode: 15.0000
+Standard Deviation: 3.7253
+Variance: 13.8780
+Skewness: -0.3279
+Kurtosis: 7.3179
+Min: 1.0000
+Max: 37.0000
+Range: 36.0000
+IQR: 0.0000
+Unique Values: 23.0000

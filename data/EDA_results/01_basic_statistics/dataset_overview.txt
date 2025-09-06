@@ -1,0 +1,8 @@
+DATASET OVERVIEW
+==================================================
+
+Dataset Shape: 2235 rows × 58 columns
+Memory Usage: 3.85 MB
+Missing Values: 3
+Duplicate Rows: 642
+Data Types: {dtype('int64'): np.int64(28), dtype('O'): np.int64(15), dtype('float64'): np.int64(15)}
