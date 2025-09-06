@@ -1,3 +1,7 @@
+# Contact
+- Author: Serhat Karaman
+- Mail: serhatkaramanworkmail@gmail.com
+
 # Pusula Data Science Case - Medical Treatment Duration Prediction
 
 A comprehensive data science pipeline for predicting medical treatment duration based on patient characteristics and medical history. This project implements advanced feature engineering, exploratory data analysis, and machine learning-ready data preparation for healthcare analytics.
@@ -644,23 +648,3 @@ After running the complete pipeline:
 - **100% numerical features** for ML compatibility
 - **Comprehensive encoding** of all categorical variables
 - **Optimized feature set** with redundancy removal
-
-## 🤝 Contributing
-
-This project follows professional data science development practices:
-
-- **Modular Architecture**: Clear separation of concerns
-- **Comprehensive Testing**: Validation at every pipeline stage
-- **Documentation**: Extensive code and process documentation
-- **Error Handling**: Production-ready error management
-- **Logging**: Complete audit trail for all operations
-
-For modifications or extensions, follow the established patterns for error handling, logging, and validation to maintain system reliability and maintainability.
-
-## 📄 License
-
-This project is developed for the Pusula Talent Academy Data Science Case Study.
-
----
-
-**Ready to predict medical treatment durations with confidence!** 🏥📊
