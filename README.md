@@ -1,7 +1,8 @@
 # Contact
 - Author: Serhat Karaman
 - Mail: serhatkaramanworkmail@gmail.com
-- [Technical Report] (https://docs.google.com/document/d/10a_I-SKVFP0zOk57_kVwWuTGvCxQkYCWTDc_MiDvKdc/edit?usp=sharing)
+- [Technical Report](https://docs.google.com/document/d/10a_I-SKVFP0zOk57_kVwWuTGvCxQkYCWTDc_MiDvKdc/edit?usp=sharing)
+
 
 # Pusula Data Science Case - Medical Treatment Duration Prediction
 
