@@ -8,7 +8,7 @@
 
 A comprehensive data science pipeline for predicting medical treatment duration based on patient characteristics and medical history. This project implements advanced feature engineering, exploratory data analysis, and machine learning-ready data preparation for healthcare analytics.
 
-## 🎯 Project Overview
+## Project Overview
 
 This pipeline processes medical patient data to predict **treatment duration in sessions** (`TEDAVISURESI_SEANS_SAYI`) using patient demographics, medical conditions, treatment types, and historical patterns. The system implements sophisticated data preprocessing, feature engineering, and comprehensive exploratory data analysis.
 
@@ -20,7 +20,7 @@ This pipeline processes medical patient data to predict **treatment duration in 
 - **Advanced EDA**: 100+ visualizations and statistical analyses
 - **Production-Ready**: Robust error handling, comprehensive logging, and automated workflows
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -76,7 +76,7 @@ pip install category_encoders
 python main.py
 ```
 
-## 📊 Pipeline Architecture
+## Pipeline Architecture
 
 The project consists of three main processing pipelines that work sequentially to transform raw medical data into machine learning-ready datasets.
 
@@ -376,58 +376,7 @@ Comprehensive Analysis & Visualizations
 
 **Output**: Comprehensive EDA results with 100+ analysis files
 
-## 🧠 Key Functions & Algorithms
-
-### Advanced Feature Engineering
-
-#### Patient-Specific Imputation Algorithm
-```python
-def _patient_specific_imputation(df, column):
-    # For each missing value:
-    # 1. Find other records for the same patient (HASTANO)
-    # 2. Use patient's historical data (mode/mean) if available
-    # 3. Fall back to population statistics if no patient history
-    # 4. Preserves individual patient characteristics
-```
-
-#### Intelligent Categorical Encoding
-The system automatically selects optimal encoding strategies:
-
-- **Binary Variables**: Simple label encoding (0/1)
-- **Low Cardinality** (≤10): One-hot encoding for full representation
-- **Medium Cardinality** (11-50): Target encoding + binary encoding for efficiency
-- **High Cardinality** (>50): Hashing + count encoding to prevent explosion
-- **Text Data**: TF-IDF encoding for medical terminology
-
-#### Blood Group Processing
-```python
-def parse_blood_group(blood_group_str):
-    # Extracts: "A Rh+" → type="A", positive=1
-    # Handles: "0 Rh-", "AB Rh+", missing values, format variations
-    # Creates: KANGRUBU_TYPE and KANGRUBU_POSITIVE features
-```
-
-### Advanced EDA Algorithms
-
-#### Skewness Analysis & Log Transformation
-- Automatically identifies highly skewed variables (|skewness| > 1)
-- Tests log transformation effectiveness
-- Provides before/after normality comparisons
-- Generates transformation recommendations
-
-#### Outlier Investigation
-- Multi-method outlier detection (IQR, Z-score)
-- Patient characteristic analysis for outliers
-- Treatment pattern analysis for extreme values
-- Clinical significance assessment
-
-#### Patient Pattern Analysis
-- Visit frequency clustering and analysis
-- High-frequency patient identification (top 10%)
-- Chronic disease burden correlation with visit patterns
-- Treatment duration patterns by patient groups
-
-## 🛡️ Robust Error Handling
+## Robust Error Handling
 
 ### Exception Handling Philosophy
 
@@ -482,7 +431,7 @@ When errors occur, the system automatically captures:
 - **Correlation Issues**: Handle edge cases in correlation calculations
 - **Visualization Errors**: Skip problematic plots, continue with others
 
-## 📝 Comprehensive Logging
+## Comprehensive Logging
 
 ### Logging Architecture
 
@@ -527,63 +476,7 @@ The logging system provides complete traceability and debugging capabilities for
 [2025-09-06 15:30:45,152] INFO - Count features created: ['TANI_SAYI', 'ALERJI_SAYI', 'UYGULAMAYERLERI_SAYI']
 ```
 
-### Production Monitoring
-
-#### Key Metrics Logged:
-- **Data Quality**: Missing values, duplicates, data types
-- **Processing Performance**: Feature creation counts, encoding success rates
-- **Memory Usage**: Dataset sizes, memory consumption
-- **Execution Time**: Stage durations, bottleneck identification
-- **Error Rates**: Failure frequencies, recovery success rates
-
-#### Debugging Support:
-- **Parameter Tracking**: All function parameters logged
-- **State Snapshots**: Data characteristics at each stage
-- **Decision Logging**: Why certain encoding/processing choices were made
-- **Performance Profiling**: Time spent in each pipeline component
-
-## 🎯 Target Variable & Use Case
-
-### Medical Context
-
-**Target Variable**: `TEDAVISURESI_SEANS_SAYI` (Treatment Duration in Sessions)
-
-This represents the number of treatment sessions required for each patient's medical condition. Understanding treatment duration is crucial for:
-
-- **Resource Planning**: Hospital capacity and staffing
-- **Patient Care**: Setting realistic treatment expectations  
-- **Cost Management**: Treatment cost estimation and budgeting
-- **Quality Metrics**: Identifying optimal treatment protocols
-
-### Predictive Features
-
-The pipeline creates features across multiple medical domains:
-
-#### Patient Demographics:
-- Age categories and numerical age
-- Gender encoding
-- Blood group analysis (type and Rh factor)
-- Nationality patterns
-
-#### Medical History:
-- Chronic disease counts and risk scoring
-- Disease category groupings
-- Multi-morbidity flags
-- Medical complexity indicators
-
-#### Treatment Characteristics:
-- Treatment type categorization
-- Application area analysis
-- Treatment frequency patterns
-- Department specializations
-
-#### Patient Behavior:
-- Visit frequency analysis
-- Treatment adherence patterns
-- Hospital utilization metrics
-- Care continuity indicators
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Environment Setup
 
@@ -630,7 +523,7 @@ make eda                   # Comprehensive analysis
 - **Log locations**: Modify `LOG_FILE_PATH` in logging configuration
 - **EDA organization**: Customize directory structure in `create_output_directories()`
 
-## 📊 Expected Outputs
+## Expected Outputs
 
 After running the complete pipeline:
 
@@ -644,9 +537,3 @@ After running the complete pipeline:
 - **Feature Importance Rankings**: Multiple algorithms and approaches
 - **Data Quality Reports**: Comprehensive quality assessment
 - **Transformation Recommendations**: Evidence-based improvement suggestions
-
-### Quality Metrics:
-- **Zero missing values** in final dataset
-- **100% numerical features** for ML compatibility
-- **Comprehensive encoding** of all categorical variables
-- **Optimized feature set** with redundancy removal
