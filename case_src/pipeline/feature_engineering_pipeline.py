@@ -58,6 +58,27 @@ class FeatureEngineeringPipeline:
         self.logger = logging.getLogger(__name__)
         self.logger.info("FeatureEngineeringPipeline initialized")
         
+        # Ensure output directories exist
+        self._ensure_output_directories()
+    
+    def _ensure_output_directories(self):
+        """Ensure all feature engineering output directories exist."""
+        try:
+            base_dir = "/Users/user/Desktop/Projects/ds_case_pusula/data"
+            
+            required_dirs = [
+                os.path.join(base_dir, "feature_engineering"),
+                os.path.join(base_dir, "data_final_version")
+            ]
+            
+            for directory in required_dirs:
+                if not os.path.exists(directory):
+                    os.makedirs(directory, exist_ok=True)
+                    self.logger.info(f"Created directory: {directory}")
+                    
+        except Exception as e:
+            self.logger.warning(f"Failed to create some directories: {str(e)}")
+        
     @pipeline_error_handler("feature_engineering")
     def load_preprocessed_data(self, file_path: str) -> pd.DataFrame:
         """
@@ -1267,7 +1288,7 @@ class FeatureEngineeringPipeline:
                 return df_cleaned
             else:
                 self.logger.info("No useless columns identified for removal")
-                return df
+            return df
             
         except Exception as e:
             self.logger.error(f"Failed to remove useless columns: {str(e)}")
@@ -1576,7 +1597,7 @@ class FeatureEngineeringPipeline:
             df_numeric = self.ensure_all_numeric(df_cleaned)
             
             # Step 16: Save final cleaned data
-            final_output_path = output_file_path.replace('feature_engineering', 'data_final_version').replace('feature_engineering_data.csv', 'final_cleaned_data.csv')
+            final_output_path = "/Users/user/Desktop/Projects/ds_case_pusula/data/data_final_version/final_cleaned_data.csv"
             self.save_final_data(df_numeric, final_output_path)
             
             self.logger.info("="*50)
@@ -1608,9 +1629,6 @@ def main():
         INPUT_FILE = os.path.join(BASE_DIR, "preprocessing", "preprocessed_data.csv")
         OUTPUT_FILE = os.path.join(BASE_DIR, "feature_engineering", "feature_engineering_data.csv")
         
-        # Ensure data_final_version directory exists
-        os.makedirs(os.path.join(BASE_DIR, "data_final_version"), exist_ok=True)
-        
         logger.info(f"Starting feature engineering pipeline with input: {INPUT_FILE}")
         
         # Run pipeline
@@ -1618,12 +1636,12 @@ def main():
         
         logger.info(f"Feature engineering completed successfully!")
         logger.info(f"Feature engineered data saved to: {OUTPUT_FILE}")
-        print(f"✅ Feature engineering completed successfully!")
-        print(f"📁 Feature engineered data saved to: {OUTPUT_FILE}")
-        print(f"📊 Final data shape: {df.shape}")
+        print(f"Feature engineering completed successfully!")
+        print(f"Feature engineered data saved to: {OUTPUT_FILE}")
+        print(f"Final data shape: {df.shape}")
         
     except Exception as e:
-        error_msg = f"❌ Feature engineering failed: {str(e)}"
+        error_msg = f"Feature engineering failed: {str(e)}"
         logger.error(error_msg)
         print(error_msg)
         raise

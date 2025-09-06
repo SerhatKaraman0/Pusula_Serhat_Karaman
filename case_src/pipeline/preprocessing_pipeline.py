@@ -52,6 +52,19 @@ class PreprocessingPipeline:
         self.logger = logging.getLogger(__name__)
         self.logger.info("PreprocessingPipeline initialized")
         
+        # Ensure output directory exists
+        self._ensure_output_directory()
+    
+    def _ensure_output_directory(self):
+        """Ensure the preprocessing output directory exists."""
+        try:
+            output_dir = "/Users/user/Desktop/Projects/ds_case_pusula/data/preprocessing"
+            if not os.path.exists(output_dir):
+                os.makedirs(output_dir, exist_ok=True)
+                self.logger.info(f"Created preprocessing output directory: {output_dir}")
+        except Exception as e:
+            self.logger.warning(f"Failed to create preprocessing directory: {str(e)}")
+        
     @pipeline_error_handler("preprocessing")
     def load_data(self, file_path: str) -> pd.DataFrame:
         """

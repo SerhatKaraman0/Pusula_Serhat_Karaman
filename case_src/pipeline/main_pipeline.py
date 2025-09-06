@@ -53,9 +53,36 @@ class MainPipeline:
         self.logger = logging.getLogger(__name__)
         self.logger.info("MainPipeline initialized")
         
+        # Ensure all necessary directories exist
+        self._create_required_directories()
+        
         # Initialize sub-pipelines
         self.preprocessing_pipeline = PreprocessingPipeline()
         self.feature_engineering_pipeline = FeatureEngineeringPipeline()
+    
+    def _create_required_directories(self):
+        """Create all required directories for the pipeline."""
+        try:
+            base_dir = "/Users/user/Desktop/Projects/ds_case_pusula/data"
+            
+            required_dirs = [
+                os.path.join(base_dir, "preprocessing"),
+                os.path.join(base_dir, "feature_engineering"), 
+                os.path.join(base_dir, "data_final_version"),
+                os.path.join(base_dir, "EDA_results"),
+                "/Users/user/Desktop/Projects/ds_case_pusula/logs"
+            ]
+            
+            for directory in required_dirs:
+                if not os.path.exists(directory):
+                    os.makedirs(directory, exist_ok=True)
+                    self.logger.info(f"Created directory: {directory}")
+                else:
+                    self.logger.debug(f"Directory already exists: {directory}")
+                    
+        except Exception as e:
+            self.logger.warning(f"Failed to create some directories: {str(e)}")
+            # Don't fail the pipeline for directory creation issues
         
     @pipeline_error_handler("main_pipeline")
     def validate_configuration(self, raw_data_file: str, preprocessed_file: str, final_output_file: str) -> None:
@@ -130,7 +157,7 @@ class MainPipeline:
             # Validate output
             validate_dataframe(preprocessed_df, min_rows=1, min_cols=1)
             
-            self.logger.info(f"✓ Preprocessing completed. Output shape: {preprocessed_df.shape}")
+            self.logger.info(f"Preprocessing completed. Output shape: {preprocessed_df.shape}")
             return preprocessed_df
             
         except Exception as e:
@@ -173,7 +200,7 @@ class MainPipeline:
             # Validate output
             validate_dataframe(final_df, min_rows=1, min_cols=1)
             
-            self.logger.info(f"✓ Feature engineering completed. Final output shape: {final_df.shape}")
+            self.logger.info(f"Feature engineering completed. Final output shape: {final_df.shape}")
             return final_df
             
         except Exception as e:
@@ -291,16 +318,16 @@ class MainPipeline:
             
             # Log verification results
             self.logger.info("VERIFYING REQUIREMENTS:")
-            self.logger.info(f"✓ All column names uppercase: {verification_results['all_columns_uppercase']}")
-            self.logger.info(f"✓ String columns checked: {verification_results['string_columns_checked']}")
-            self.logger.info(f"✓ Sample strings: {verification_results['sample_strings']}")
-            self.logger.info(f"✓ Final shape: {verification_results['final_shape']}")
+            self.logger.info(f"All column names uppercase: {verification_results['all_columns_uppercase']}")
+            self.logger.info(f"String columns checked: {verification_results['string_columns_checked']}")
+            self.logger.info(f"Sample strings: {verification_results['sample_strings']}")
+            self.logger.info(f"Final shape: {verification_results['final_shape']}")
             
             # Check file existence
             preprocessing_exists = os.path.exists(preprocessed_file)
             feature_eng_exists = os.path.exists(final_output_file)
-            self.logger.info(f"✓ Preprocessing output exists: {preprocessing_exists}")
-            self.logger.info(f"✓ Feature engineering output exists: {feature_eng_exists}")
+            self.logger.info(f"Preprocessing output exists: {preprocessing_exists}")
+            self.logger.info(f"Feature engineering output exists: {feature_eng_exists}")
             
             self.logger.info("="*70)
             self.logger.info("COMPLETE PIPELINE FINISHED SUCCESSFULLY!")
@@ -363,12 +390,12 @@ def display_pipeline_summary():
        Raw Data (2235 rows) → Preprocessing (404 patients) → Feature Engineering (404 rows, 41 features)
 
     REQUIREMENTS MET:
-       • ✓ Column names: ALL UPPERCASE
-       • ✓ String data: all lowercase
-       • ✓ No columns removed
-       • ✓ Proper folder structure
-       • ✓ Dedicated output directories
-       • ✓ Comprehensive logging and exception handling
+       • Column names: ALL UPPERCASE
+       • String data: all lowercase
+       • No columns removed
+       • Proper folder structure
+       • Dedicated output directories
+       • Comprehensive logging and exception handling
     """
     
     print(summary)

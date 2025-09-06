@@ -78,7 +78,24 @@ class EDAPipeline:
         # Target variable
         self.target_column = "TEDAVISURESI_SEANS_SAYI"
         
+        # Ensure base EDA directory exists
+        self._ensure_base_directory()
+        
         # Configure matplotlib for high-quality plots
+        self._configure_matplotlib()
+    
+    def _ensure_base_directory(self):
+        """Ensure the base EDA results directory exists."""
+        try:
+            base_eda_dir = "/Users/user/Desktop/Projects/ds_case_pusula/data/EDA_results"
+            if not os.path.exists(base_eda_dir):
+                os.makedirs(base_eda_dir, exist_ok=True)
+                self.logger.info(f"Created base EDA directory: {base_eda_dir}")
+        except Exception as e:
+            self.logger.warning(f"Failed to create base EDA directory: {str(e)}")
+    
+    def _configure_matplotlib(self):
+        """Configure matplotlib settings for high-quality plots."""
         plt.rcParams['figure.figsize'] = (12, 8)
         plt.rcParams['figure.dpi'] = 300
         plt.rcParams['savefig.dpi'] = 300
@@ -1440,11 +1457,11 @@ def main():
         eda_pipeline.run_complete_eda(input_file, output_dir)
         
         logger.info("EDA pipeline completed successfully!")
-        print("✅ EDA pipeline completed successfully!")
-        print(f"📊 Results saved to: {output_dir}")
+        print("EDA pipeline completed successfully!")
+        print(f"Results saved to: {output_dir}")
         
     except Exception as e:
-        error_msg = f"❌ EDA pipeline failed: {str(e)}"
+        error_msg = f"EDA pipeline failed: {str(e)}"
         logger.error(error_msg)
         print(error_msg)
         raise
