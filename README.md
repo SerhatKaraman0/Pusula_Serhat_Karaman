@@ -29,6 +29,29 @@ This pipeline processes medical patient data to predict **treatment duration in 
 - **Virtual environment** support
 - **Excel file**: `data/Talent_Academy_Case_DT_2025.xlsx`
 
+### Running the Complete Pipeline
+
+The easiest way to run the entire pipeline is using the main.py script:
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Run complete pipeline (preprocessing + feature engineering + EDA)
+python main.py
+
+# Run individual stages
+python main.py --stage preprocessing
+python main.py --stage feature-engineering
+python main.py --stage eda
+
+# Get help and see all options
+python main.py --help
+
+# Dry run to see what would be executed
+python main.py --dry-run --verbose
+```
+
 ### Installation & Setup
 
 #### Unix/Linux/macOS
