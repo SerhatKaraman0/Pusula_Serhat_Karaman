@@ -1,0 +1,43 @@
+
+EXPLORATORY DATA ANALYSIS SUMMARY REPORT
+========================================
+
+Dataset Overview:
+-----------------
+• Total Records: 2,235
+• Total Features: 258
+• Missing Values: 3
+• Duplicate Rows: 642
+
+Target Variable Analysis (TEDAVISURESI_SEANS_SAYI):
+-----------------------------------------------
+• Mean: 14.57
+• Median: 15.00
+• Standard Deviation: 3.73
+• Range: 1 - 37
+• Unique Values: 23
+
+Data Types Distribution:
+-----------------------
+• float64: 127 columns
+• int64: 76 columns
+• bool: 40 columns
+• object: 15 columns
+
+
+Key Findings:
+------------
+• The target variable ranges from 1 to 37 sessions
+• Average treatment duration is 14.6 sessions
+• Dataset contains 404 unique patients
+• Most common treatment duration: 15 sessions
+
+Recommendations:
+---------------
+• Consider log transformation for skewed variables
+• Investigate outliers in treatment duration
+• Explore patient-specific patterns using HASTANO_COUNT
+• Consider feature engineering based on correlation findings
+• Address missing values using domain knowledge
+
+Analysis Complete: 2025-09-06 22:43:17
