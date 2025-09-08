@@ -2,6 +2,7 @@
 - Author: Serhat Karaman
 - Mail: serhatkaramanworkmail@gmail.com
 - [Technical Report](https://docs.google.com/document/d/10a_I-SKVFP0zOk57_kVwWuTGvCxQkYCWTDc_MiDvKdc/edit?usp=sharing)
+- [Detailed EDA Results](https://github.com/SerhatKaraman0/Pusula_Serhat_Karaman/tree/main/data/EDA_results)
 
 
 # Pusula Data Science Case - Medical Treatment Duration Prediction
